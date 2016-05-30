@@ -6,4 +6,5 @@ target 'Tipsy' do
   use_frameworks!
   # Pods for Tipsy
   pod 'Firebase'
+  pod 'Firebase/Auth'
 end
