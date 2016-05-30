@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>989894252947-1bqqks3b9d5kqqsk95c15uop6jp562n8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.989894252947-1bqqks3b9d5kqqsk95c15uop6jp562n8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBktwDR5XbUC_W43aEtZUh-h7kxR8xVUME</string>
+	<key>GCM_SENDER_ID</key>
+	<string>989894252947</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tipsyapp.Tipsy</string>
+	<key>PROJECT_ID</key>
+	<string>tipsy-2e0a2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tipsy-2e0a2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:989894252947:ios:df9ce24dc1e11698</string>
+	<key>DATABASE_URL</key>
+	<string>https://tipsy-2e0a2.firebaseio.com</string>
+</dict>
+</plist>
