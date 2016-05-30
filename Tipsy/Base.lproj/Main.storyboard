@@ -15,11 +15,85 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mb-rR-gbg" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="285" y="469" width="30" height="30"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lgq-fR-0iV">
+                                <rect key="frame" x="201" y="271" width="198" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="O5i-DJ-glF"/>
+                                    <constraint firstAttribute="height" constant="82" id="Rb6-du-qf1"/>
+                                    <constraint firstAttribute="height" constant="83" id="qy7-Q1-Pkb"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qy7-Q1-Pkb"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.21176470588235294" green="0.0" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lgq-fR-0iV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="47U-4s-77i"/>
+                            <constraint firstItem="0Mb-rR-gbg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lgq-fR-0iV" secondAttribute="bottom" constant="74" id="8fO-QK-r6w"/>
+                            <constraint firstItem="0Mb-rR-gbg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9sN-Tx-7qY"/>
+                            <constraint firstItem="lgq-fR-0iV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="251" id="J04-eS-iMe"/>
+                            <constraint firstItem="0Mb-rR-gbg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OYw-Sg-go2"/>
+                            <constraint firstItem="0Mb-rR-gbg" firstAttribute="top" secondItem="lgq-fR-0iV" secondAttribute="bottom" constant="166" id="RMj-xY-mMj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Mb-rR-gbg" secondAttribute="bottom" constant="101" id="RYd-Ka-mRS"/>
+                            <constraint firstItem="0Mb-rR-gbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="500" id="bdr-fd-Eec"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Mb-rR-gbg" secondAttribute="bottom" constant="101" id="jGy-aA-YRF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8fO-QK-r6w"/>
+                                <exclude reference="OYw-Sg-go2"/>
+                                <exclude reference="RMj-xY-mMj"/>
+                                <exclude reference="bdr-fd-Eec"/>
+                                <exclude reference="RYd-Ka-mRS"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="0Mb-rR-gbg" id="aJN-re-Te6"/>
+                        <segue destination="w41-Tb-tE1" kind="show" identifier="loginSuccess" id="Hl4-QF-j5y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="460" y="280"/>
+        </scene>
+        <!--Venues Table View Controller-->
+        <scene sceneID="Y9Q-Mc-0Fb">
+            <objects>
+                <tableViewController storyboardIdentifier="VenuesTableViewController" id="w41-Tb-tE1" customClass="VenuesTableViewController" customModule="Tipsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hWa-LM-4Ov">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venueCell" id="CQu-jm-zRX">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CQu-jm-zRX" id="Msh-GW-dPB">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w41-Tb-tE1" id="TMT-g5-Ynh"/>
+                            <outlet property="delegate" destination="w41-Tb-tE1" id="eKd-Nx-inp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHo-mP-ZZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="280"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="195" height="77"/>
+    </resources>
 </document>
