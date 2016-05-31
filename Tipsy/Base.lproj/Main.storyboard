@@ -99,7 +99,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-hz-QeX">
-                                                    <rect key="frame" x="3" y="177" width="274.5" height="44"/>
+                                                    <rect key="frame" x="0.0" y="177" width="277.5" height="44"/>
                                                     <color key="backgroundColor" red="0.23529411759999999" green="0.0" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="FnG-Qx-g6I"/>
@@ -116,7 +116,7 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-cz-bsf">
-                                                    <rect key="frame" x="280" y="177" width="274.5" height="44"/>
+                                                    <rect key="frame" x="280" y="177" width="278" height="44"/>
                                                     <color key="backgroundColor" red="0.23529411759999999" green="0.0" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="2nY-gP-31W"/>
@@ -127,7 +127,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pk1-hz-QeX" firstAttribute="leading" secondItem="SDW-xD-DYN" secondAttribute="leading" constant="3" id="36E-Ov-4gI"/>
+                                                <constraint firstItem="pk1-hz-QeX" firstAttribute="leading" secondItem="SDW-xD-DYN" secondAttribute="leading" id="36E-Ov-4gI"/>
                                                 <constraint firstItem="MyW-eJ-4k8" firstAttribute="leading" secondItem="SDW-xD-DYN" secondAttribute="leading" id="6GO-Jx-5T1"/>
                                                 <constraint firstAttribute="bottom" secondItem="Mvh-cz-bsf" secondAttribute="bottom" id="8rn-Mc-6Cw"/>
                                                 <constraint firstItem="pk1-hz-QeX" firstAttribute="top" secondItem="MyW-eJ-4k8" secondAttribute="bottom" id="9ky-gb-oUL"/>
@@ -135,7 +135,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="MyW-eJ-4k8" secondAttribute="trailing" id="F7t-9J-SC8"/>
                                                 <constraint firstItem="HzG-ZV-lXt" firstAttribute="centerX" secondItem="SDW-xD-DYN" secondAttribute="centerX" id="LD6-NU-lsV"/>
                                                 <constraint firstAttribute="height" constant="221" id="N6r-1p-F6o"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mvh-cz-bsf" secondAttribute="trailing" constant="3" id="Tuk-4J-SKO"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mvh-cz-bsf" secondAttribute="trailing" id="Tuk-4J-SKO"/>
                                                 <constraint firstItem="Mvh-cz-bsf" firstAttribute="top" secondItem="MyW-eJ-4k8" secondAttribute="bottom" id="YVc-LM-0Y9"/>
                                                 <constraint firstAttribute="bottom" secondItem="HzG-ZV-lXt" secondAttribute="bottom" id="dW9-0o-syz"/>
                                                 <constraint firstAttribute="bottom" secondItem="pk1-hz-QeX" secondAttribute="bottom" id="osq-Hr-yeA"/>
@@ -199,6 +199,6 @@
     <resources>
         <image name="BurgerButton" width="30" height="17"/>
         <image name="Logo" width="195" height="77"/>
-        <image name="Party" width="358" height="185"/>
+        <image name="Party" width="350" height="177"/>
     </resources>
 </document>
