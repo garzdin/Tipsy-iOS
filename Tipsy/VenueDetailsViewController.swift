@@ -30,8 +30,18 @@ class VenueDetailsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupTitle()
+        setupMenuButton()
         initializeData()
         getPinFromAddress()
+    }
+    
+    func setupMenuButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "BurgerButton"),  style: .Plain, target: self, action: #selector(VenueDetailsViewController.showMenuAction))
+    }
+    
+    func showMenuAction() -> Void {
+//        self.navigationController?.popViewControllerAnimated(true)
+        print("Show menu")
     }
     
     func initializeData() {
