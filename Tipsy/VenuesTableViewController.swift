@@ -24,7 +24,7 @@ class VenuesTableViewController: UITableViewController {
             if let user = user {
                 print(user.displayName)
             } else {
-                print("No user")
+                
             }
         }
     }
