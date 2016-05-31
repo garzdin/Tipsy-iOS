@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet var loginButton: FBSDKLoginButton!
     
@@ -52,14 +52,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print(error.localizedDescription)
                     return
                 }
-                self.performSegueWithIdentifier("loginSuccess", sender: self)
             }
         }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User logged out.")
-//        
+        print("User logged out.") 
     }
 }
 

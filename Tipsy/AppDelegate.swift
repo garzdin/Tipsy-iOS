@@ -14,21 +14,21 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var initialViewController: UIViewController?
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()
+        
+        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
+        let venuesTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("VenuesTableViewController") as? UITableViewController
+        
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if user != nil {
-                self.initialViewController = storyboard.instantiateViewControllerWithIdentifier("VenuesTableViewController") as! UITableViewController
+                self.window?.rootViewController = venuesTableViewController
             } else {
-                self.initialViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+                self.window?.rootViewController = loginViewController
             }
-            self.window?.rootViewController = self.initialViewController
-            self.window?.makeKeyAndVisible()
         }
         return true
     }

@@ -2,7 +2,7 @@
 //  VenuesTableViewController.swift
 //  Tipsy
 //
-//  Created by Teodor on 30/05/16.
+//  Created by Teodor on 31/05/16.
 //  Copyright © 2016 TeodorGarzdin. All rights reserved.
 //
 
@@ -19,12 +19,11 @@ class VenuesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             if let user = user {
                 print(user.displayName)
             } else {
-                // No user is signed in.
+                print("No user")
             }
         }
     }
@@ -100,10 +99,5 @@ class VenuesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-//    @IBAction func logoutAction(sender: UIButton) {
-//        try! FIRAuth.auth()!.signOut()
-//        self.navigationController?.popViewControllerAnimated(true)
-//    }
 
 }
