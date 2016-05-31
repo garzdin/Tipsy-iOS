@@ -12,6 +12,8 @@ import FBSDKLoginKit
 
 class VenuesTableViewController: UITableViewController {
     
+    var venues: [AnyObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTitle()
@@ -27,6 +29,7 @@ class VenuesTableViewController: UITableViewController {
                 
             }
         }
+        getData()
     }
     
     func setupTitle() {
@@ -51,16 +54,34 @@ class VenuesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return self.venues.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("venueCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("venueCell", forIndexPath: indexPath) as! VenueTableViewCell
+        if let venueName = self.venues[indexPath.row]["name"] as? String {
+            cell.venueNameLabel.text = venueName
+        }
+        if let venueMessage = self.venues[indexPath.row]["message"] as? String {
+            cell.venueLabelMessage.text = venueMessage
+        }
+        if let venueAddress = self.venues[indexPath.row]["address"] as? String {
+            cell.venueLabelAddress.text = venueAddress
+        }
+        if let venueOpening = self.venues[indexPath.row]["openingTime"] as? String, venueClosing = self.venues[indexPath.row]["closingTime"] as? String {
+            cell.venueLabelTimes.text = "\(venueOpening) - \(venueClosing)"
+        }
+        if let venueMusic  = self.venues[indexPath.row]["musicType"] as? String {
+            cell.venueLabelMusic.text = venueMusic
+        }
+        if let venueFavorited = self.venues[indexPath.row]["favoriteStatus"] as? Bool {
+            cell.favorited = venueFavorited
+        }
         return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 245.0
+        return 263.0
     }
 
     /*
@@ -98,15 +119,49 @@ class VenuesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
+        if segue.identifier == "venueDetails" {
+            let viewController: VenueDetailsViewController = segue.destinationViewController as! VenueDetailsViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                if let venueName = self.venues[indexPath.row]["name"] as? String {
+                    viewController.venueName = venueName
+                }
+                if let venueMessage = self.venues[indexPath.row]["message"] as? String {
+                    viewController.venueMessage = venueMessage
+                }
+                if let venueAddress = self.venues[indexPath.row]["address"] as? String {
+                    viewController.venueAddress = venueAddress
+                }
+                if let venueOpening = self.venues[indexPath.row]["openingTime"] as? String, venueClosing = self.venues[indexPath.row]["closingTime"] as? String {
+                    viewController.venueTimes = "\(venueOpening) - \(venueClosing)"
+                }
+                if let venueMusic  = self.venues[indexPath.row]["musicType"] as? String {
+                    viewController.venueMusic = venueMusic
+                }
+                if let venueFavorited = self.venues[indexPath.row]["favoriteStatus"] as? Bool {
+                    viewController.venueFavorited = venueFavorited
+                }
+            }
+        }
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    func getData() {
+        if let path = NSBundle.mainBundle().pathForResource("Data", ofType: "plist") {
+            if let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+                if let venuesDict = dict["venues"] as? [AnyObject] {
+                    for venue in venuesDict {
+                        self.venues.append(venue)
+                    }
+                }
+            }
+        }
+        self.tableView.reloadData()
+    }
 
     @IBAction func logoutAction(sender: UIBarButtonItem) {
         FBSDKLoginManager().logOut()

@@ -10,8 +10,11 @@
 		4927199D1CFCA0A400C10652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927199C1CFCA0A400C10652 /* AppDelegate.swift */; };
 		4927199F1CFCA0A400C10652 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927199E1CFCA0A400C10652 /* LoginViewController.swift */; };
 		492719A21CFCA0A400C10652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492719A01CFCA0A400C10652 /* Main.storyboard */; };
-		492719A41CFCA0A400C10652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492719A31CFCA0A400C10652 /* Assets.xcassets */; };
 		492719AF1CFCA8E300C10652 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 492719AE1CFCA8E300C10652 /* GoogleService-Info.plist */; };
+		49626C561CFE1D5700C678B4 /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49626C551CFE1D5700C678B4 /* VenueTableViewCell.swift */; };
+		497CD0071CFE35E300D4EBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497CD0061CFE35E300D4EBD3 /* Assets.xcassets */; };
+		497CD0091CFE370200D4EBD3 /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 497CD0081CFE370200D4EBD3 /* Data.plist */; };
+		497CD00B1CFE425100D4EBD3 /* VenueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497CD00A1CFE425100D4EBD3 /* VenueDetailsViewController.swift */; };
 		49B130041CFDD3D700983E7E /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B130031CFDD3D700983E7E /* VenuesTableViewController.swift */; };
 		EF29D920E20D57D228E25CDD /* Pods_Tipsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B638F075A16227DF0EC2B32 /* Pods_Tipsy.framework */; };
 /* End PBXBuildFile section */
@@ -21,9 +24,12 @@
 		4927199C1CFCA0A400C10652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4927199E1CFCA0A400C10652 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		492719A11CFCA0A400C10652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		492719A31CFCA0A400C10652 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		492719A81CFCA0A400C10652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		492719AE1CFCA8E300C10652 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49626C551CFE1D5700C678B4 /* VenueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
+		497CD0061CFE35E300D4EBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		497CD0081CFE370200D4EBD3 /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
+		497CD00A1CFE425100D4EBD3 /* VenueDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailsViewController.swift; sourceTree = "<group>"; };
 		49B130031CFDD3D700983E7E /* VenuesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
 		9B638F075A16227DF0EC2B32 /* Pods_Tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476F733ABB30F7D699AD80B /* Pods-Tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tipsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tipsy/Pods-Tipsy.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +53,8 @@
 			children = (
 				4927199E1CFCA0A400C10652 /* LoginViewController.swift */,
 				49B130031CFDD3D700983E7E /* VenuesTableViewController.swift */,
+				49626C551CFE1D5700C678B4 /* VenueTableViewCell.swift */,
+				497CD00A1CFE425100D4EBD3 /* VenueDetailsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -75,9 +83,10 @@
 				4927199C1CFCA0A400C10652 /* AppDelegate.swift */,
 				491C064C1CFD7A6100399D0F /* Controllers */,
 				492719A01CFCA0A400C10652 /* Main.storyboard */,
-				492719A31CFCA0A400C10652 /* Assets.xcassets */,
+				497CD0061CFE35E300D4EBD3 /* Assets.xcassets */,
 				492719A81CFCA0A400C10652 /* Info.plist */,
 				492719AE1CFCA8E300C10652 /* GoogleService-Info.plist */,
+				497CD0081CFE370200D4EBD3 /* Data.plist */,
 			);
 			path = Tipsy;
 			sourceTree = "<group>";
@@ -161,8 +170,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492719A41CFCA0A400C10652 /* Assets.xcassets in Resources */,
 				492719A21CFCA0A400C10652 /* Main.storyboard in Resources */,
+				497CD0071CFE35E300D4EBD3 /* Assets.xcassets in Resources */,
+				497CD0091CFE370200D4EBD3 /* Data.plist in Resources */,
 				492719AF1CFCA8E300C10652 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4927199F1CFCA0A400C10652 /* LoginViewController.swift in Sources */,
+				49626C561CFE1D5700C678B4 /* VenueTableViewCell.swift in Sources */,
+				497CD00B1CFE425100D4EBD3 /* VenueDetailsViewController.swift in Sources */,
 				4927199D1CFCA0A400C10652 /* AppDelegate.swift in Sources */,
 				49B130041CFDD3D700983E7E /* VenuesTableViewController.swift in Sources */,
 			);

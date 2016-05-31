@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>venues</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Heidi&apos;s Beer Bar</string>
+			<key>message</key>
+			<string>Free Beer</string>
+			<key>address</key>
+			<string>Jomfru Ane Gade 3</string>
+			<key>openingTime</key>
+			<string>6PM</string>
+			<key>closingTime</key>
+			<string>3AM</string>
+			<key>musicType</key>
+			<string>Pop &amp; House</string>
+			<key>favoriteStatus</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rock Cafeen</string>
+			<key>message</key>
+			<string>2 Free Shots</string>
+			<key>address</key>
+			<string>Jomfru Ane Gade 27</string>
+			<key>openingTime</key>
+			<string>9PM</string>
+			<key>closingTime</key>
+			<string>5AM</string>
+			<key>musicType</key>
+			<string>Rock &amp; Metal</string>
+			<key>favoriteStatus</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Down Town Bar</string>
+			<key>message</key>
+			<string>Free Cocktail</string>
+			<key>address</key>
+			<string>Jomfru Ane Gade 12</string>
+			<key>openingTime</key>
+			<string>9PM</string>
+			<key>closingTime</key>
+			<string>5AM</string>
+			<key>musicType</key>
+			<string>Pop &amp; Rock</string>
+			<key>favoriteStatus</key>
+			<false/>
+		</dict>
+	</array>
+</dict>
+</plist>
