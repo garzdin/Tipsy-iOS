@@ -77,4 +77,13 @@ class VenueDetailsViewController: UIViewController {
     }
     */
 
+    @IBAction func favoriteAction(sender: UIButton) {
+        if(favorited) {
+            favorited = false
+            sender.setImage(UIImage(named: "NotFavorited"), forState: .Normal)
+        } else {
+            favorited = true
+            sender.setImage(UIImage(named: "Favorited"), forState: .Normal)
+        }
+    }
 }
