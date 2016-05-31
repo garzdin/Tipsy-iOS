@@ -13,11 +13,13 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet var loginButton: FBSDKLoginButton!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginButton.delegate = self
         self.setupGradient()
+        loginButtonVisibility()
+        self.loginButton.delegate = self
     }
     
     func setupGradient() {
@@ -34,6 +36,18 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
+    
+    func loginButtonVisibility() {
+        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            if user != nil {
+                self.loginButton.hidden = true
+            } else {
+                self.activityIndicator.hidden = true
+                self.activityIndicator.stopAnimating()
+                self.loginButton.hidden = false
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,6 +55,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        self.loginButton.hidden = true
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
         if let error = error {
             print(error.localizedDescription)
             return

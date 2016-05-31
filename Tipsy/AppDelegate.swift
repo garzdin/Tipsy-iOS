@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
-        let venuesTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("VenuesTableViewController") as? UITableViewController
+        let venuesTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NavigationController") as? UINavigationController
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             if user != nil {

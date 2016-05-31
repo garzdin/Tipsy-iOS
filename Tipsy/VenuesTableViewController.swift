@@ -8,12 +8,13 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 class VenuesTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupTitle()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,6 +27,14 @@ class VenuesTableViewController: UITableViewController {
                 print("No user")
             }
         }
+    }
+    
+    func setupTitle() {
+        let logoImage = UIImageView(frame: CGRect(x:0, y:0, width: 87, height: 37))
+        logoImage.contentMode = .ScaleAspectFit
+        let logo = UIImage(named: "Logo")
+        logoImage.image = logo
+        self.navigationItem.titleView = logoImage
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,18 +51,17 @@ class VenuesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("venueCell", forIndexPath: indexPath)
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 245.0
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -100,4 +108,9 @@ class VenuesTableViewController: UITableViewController {
     }
     */
 
+    @IBAction func logoutAction(sender: UIBarButtonItem) {
+        FBSDKLoginManager().logOut()
+        try! FIRAuth.auth()?.signOut()
+        UIApplication.sharedApplication().keyWindow?.rootViewController = storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+    }
 }
