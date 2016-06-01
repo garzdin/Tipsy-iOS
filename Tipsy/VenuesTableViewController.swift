@@ -8,9 +8,11 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
 import FBSDKLoginKit
+import FBSDKShareKit
 
-class VenuesTableViewController: UITableViewController {
+class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
     
     var venues: [AnyObject] = []
     
@@ -167,5 +169,29 @@ class VenuesTableViewController: UITableViewController {
         FBSDKLoginManager().logOut()
         try! FIRAuth.auth()?.signOut()
         UIApplication.sharedApplication().keyWindow?.rootViewController = storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        
+    }
+    
+    func sharerDidCancel(sharer: FBSDKSharing!) {
+        
+    }
+    
+    @IBAction func shareAction(sender: UIButton) {
+        let content = FBSDKShareLinkContent()
+        content.contentDescription = "Tipsy has great offers on beer"
+        content.placeID = "267091300008193"
+        let dialog = FBSDKShareDialog()
+        dialog.shareContent = content
+        dialog.delegate = self
+        dialog.fromViewController = self
+        dialog.mode = .Automatic
+        dialog.show()
     }
 }

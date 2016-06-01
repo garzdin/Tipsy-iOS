@@ -32,14 +32,6 @@ class VenueTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func getDrinkAction(sender: UIButton) {
-        
-    }
-    
-    @IBAction func shareAction(sender: UIButton) {
-        
-    }
-    
     @IBAction func favoriteAction(sender: UIButton) {
         if(favorited) {
             favorited = false
