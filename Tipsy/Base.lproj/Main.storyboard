@@ -101,7 +101,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhS-Ql-vkF">
-                                            <rect key="frame" x="21" y="192" width="278" height="56"/>
+                                            <rect key="frame" x="21" y="192" width="278.5" height="56"/>
                                             <color key="backgroundColor" red="0.23529411759999999" green="0.0" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="Get Drink">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,15 +111,15 @@
                                             </connections>
                                         </button>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gq-0V-o2M" userLabel="Seperator">
-                                            <rect key="frame" x="299" y="204" width="2" height="44"/>
+                                            <rect key="frame" x="299.5" y="204" width="1" height="44"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="2" id="QQy-Hx-0Cg"/>
+                                                <constraint firstAttribute="width" constant="1" id="QQy-Hx-0Cg"/>
                                                 <constraint firstAttribute="height" constant="44" id="fR7-99-edR"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQ9-1g-MOp">
-                                            <rect key="frame" x="301" y="192" width="278" height="56"/>
+                                            <rect key="frame" x="300.5" y="192" width="278.5" height="56"/>
                                             <color key="backgroundColor" red="0.23529411759999999" green="0.0" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="Share">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -298,22 +298,22 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chL-IM-jdq">
-                                <rect key="frame" x="0.0" y="241" width="300" height="44"/>
+                                <rect key="frame" x="0.0" y="241" width="299.5" height="44"/>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.0" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Get Drink">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGP-eY-YrW" userLabel="Seperator">
-                                <rect key="frame" x="299" y="241" width="2" height="44"/>
+                                <rect key="frame" x="299.5" y="241" width="1" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="bwm-Gv-W4J"/>
-                                    <constraint firstAttribute="width" constant="2" id="qgI-Sd-8DZ"/>
+                                    <constraint firstAttribute="width" constant="1" id="qgI-Sd-8DZ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0R-G4-1kH">
-                                <rect key="frame" x="302" y="241" width="298" height="44"/>
+                                <rect key="frame" x="300.5" y="241" width="299.5" height="44"/>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.0" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -408,11 +408,11 @@
                             <constraint firstItem="rI3-FB-mYF" firstAttribute="leading" secondItem="M3g-IS-zq5" secondAttribute="leadingMargin" constant="18" id="iY7-1E-DBJ"/>
                             <constraint firstItem="ueA-S6-WyP" firstAttribute="top" secondItem="rI3-FB-mYF" secondAttribute="bottom" constant="6" id="ir4-r9-VI0"/>
                             <constraint firstItem="Rcn-Bv-Qas" firstAttribute="top" secondItem="nUD-ZU-Ufu" secondAttribute="bottom" constant="8" id="k04-0d-VKY"/>
-                            <constraint firstItem="w0R-G4-1kH" firstAttribute="leading" secondItem="UGP-eY-YrW" secondAttribute="trailing" constant="1" id="oLt-BT-fPg"/>
+                            <constraint firstItem="w0R-G4-1kH" firstAttribute="leading" secondItem="UGP-eY-YrW" secondAttribute="trailing" id="oLt-BT-fPg"/>
                             <constraint firstItem="c80-Oh-hIf" firstAttribute="top" secondItem="ueA-S6-WyP" secondAttribute="bottom" constant="6" id="qBK-rx-55G"/>
                             <constraint firstItem="c80-Oh-hIf" firstAttribute="leading" secondItem="M3g-IS-zq5" secondAttribute="leadingMargin" constant="18" id="rTH-eX-p2R"/>
                             <constraint firstItem="9ZH-u2-qmq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="nUD-ZU-Ufu" secondAttribute="trailing" constant="450" id="rXV-Tq-irB"/>
-                            <constraint firstItem="UGP-eY-YrW" firstAttribute="leading" secondItem="chL-IM-jdq" secondAttribute="trailing" constant="-1" id="shQ-fe-POy"/>
+                            <constraint firstItem="UGP-eY-YrW" firstAttribute="leading" secondItem="chL-IM-jdq" secondAttribute="trailing" id="shQ-fe-POy"/>
                             <constraint firstItem="chL-IM-jdq" firstAttribute="top" secondItem="mpQ-aG-ejZ" secondAttribute="bottom" id="tI8-bB-OXP"/>
                             <constraint firstItem="9Ou-yt-DtY" firstAttribute="top" secondItem="w0R-G4-1kH" secondAttribute="bottom" id="tzG-OL-JwD"/>
                             <constraint firstItem="Sjk-1I-QpD" firstAttribute="top" secondItem="9Ou-yt-DtY" secondAttribute="bottom" id="vc4-bR-Oqt"/>
