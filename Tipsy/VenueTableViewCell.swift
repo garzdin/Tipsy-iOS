@@ -33,11 +33,11 @@ class VenueTableViewCell: UITableViewCell {
     }
     
     @IBAction func getDrinkAction(sender: UIButton) {
-        print("Got drink")
+        
     }
     
     @IBAction func shareAction(sender: UIButton) {
-        print("Shared")
+        
     }
     
     @IBAction func favoriteAction(sender: UIButton) {
