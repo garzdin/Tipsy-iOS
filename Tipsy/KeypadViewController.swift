@@ -8,35 +8,6 @@
 
 import UIKit
 
-extension CALayer {
-    
-    func shake(duration: NSTimeInterval = NSTimeInterval(0.5)) {
-        
-        let animationKey = "shake"
-        removeAnimationForKey(animationKey)
-        
-        let kAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        kAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        kAnimation.duration = duration
-        
-        var needOffset = CGRectGetWidth(frame) * 0.15,
-        values = [CGFloat]()
-        
-        let minOffset = needOffset * 0.1
-        
-        repeat {
-            
-            values.append(-needOffset)
-            values.append(needOffset)
-            needOffset *= 0.5
-        } while needOffset > minOffset
-        
-        values.append(0)
-        kAnimation.values = values
-        addAnimation(kAnimation, forKey: animationKey)
-    }
-}
-
 class KeypadViewController: UIViewController {
     
     var buttonArray: [Int] = []
@@ -56,7 +27,16 @@ class KeypadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.setupButtonTags()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Setup button tags
+    
+    func setupButtonTags() {
         buttonOne.tag = 1
         buttonTwo.tag = 2
         buttonThree.tag = 3
@@ -68,24 +48,22 @@ class KeypadViewController: UIViewController {
         buttonNine.tag = 9
         buttonZero.tag = 0
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    // MARK: - Combination check
     
     func checkArray() {
         if buttonArray.count == 4 {
             let codeToArray = self.correctCode.characters.map{Int(String($0))!}
             if buttonArray == codeToArray {
-                // Right combination
+                self.navigationController?.popViewControllerAnimated(true)
             } else {
                 self.dialContainer.layer.shake()
             }
-            
             buttonArray = []
         }
     }
+    
+    // MARK: - Keypress mapper
     
     @IBAction func keypadPress(sender: UIButton) {
         switch sender.tag {
@@ -113,15 +91,4 @@ class KeypadViewController: UIViewController {
             break
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

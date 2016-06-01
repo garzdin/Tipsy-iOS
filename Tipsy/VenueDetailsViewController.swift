@@ -8,8 +8,11 @@
 
 import UIKit
 import MapKit
+import FBSDKShareKit
 
-class VenueDetailsViewController: UIViewController {
+class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate {
+    
+    var drinks: Int = 0
     
     var venueName: String = ""
     var venueMessage: String = ""
@@ -28,21 +31,15 @@ class VenueDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setupTitle()
-        setupMenuButton()
-        initializeData()
-        getPinFromAddress()
+        self.initializeData()
+        self.getPinFromAddress()
     }
     
-    func setupMenuButton() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "BurgerButton"),  style: .Plain, target: self, action: #selector(VenueDetailsViewController.showMenuAction))
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
-    func showMenuAction() -> Void {
-//        self.navigationController?.popViewControllerAnimated(true)
-        print("Show menu")
-    }
+    // MARK: - Initialize data
     
     func initializeData() {
         self.venueLabelName.text = venueName
@@ -53,13 +50,7 @@ class VenueDetailsViewController: UIViewController {
         self.favorited = venueFavorited
     }
     
-    func setupTitle() {
-        let logoImage = UIImageView(frame: CGRect(x:0, y:0, width: 87, height: 37))
-        logoImage.contentMode = .ScaleAspectFit
-        let logo = UIImage(named: "Logo")
-        logoImage.image = logo
-        self.navigationItem.titleView = logoImage
-    }
+    // MARK: - Geocode reverse address
     
     func getPinFromAddress() {
         let geocoder = CLGeocoder()
@@ -70,22 +61,8 @@ class VenueDetailsViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // MARK: - Favorite action
 
     @IBAction func favoriteAction(sender: UIButton) {
         if(favorited) {
@@ -95,5 +72,44 @@ class VenueDetailsViewController: UIViewController {
             favorited = true
             sender.setImage(UIImage(named: "Favorited"), forState: .Normal)
         }
+    }
+    
+    // MARK: - Get drink action
+    
+    @IBAction func getDrinkAction(sender: UIButton) {
+        if drinks >= 1 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let alertDialog = storyboard.instantiateViewControllerWithIdentifier("AlertViewController")
+            alertDialog.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            alertDialog.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            self.presentViewController(alertDialog, animated: true, completion: nil)
+        }
+        self.drinks += 1
+    }
+    
+    // MARK: - Share action
+    
+    @IBAction func shareAction(sender: UIButton) {
+        let content = FBSDKShareLinkContent()
+        content.contentDescription = "Tipsy has great offers on beer"
+        content.placeID = "267091300008193"
+        let dialog = FBSDKShareDialog()
+        dialog.shareContent = content
+        dialog.delegate = self
+        dialog.fromViewController = self
+        dialog.mode = .Automatic
+        dialog.show()
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        
+    }
+    
+    func sharerDidCancel(sharer: FBSDKSharing!) {
+        
     }
 }

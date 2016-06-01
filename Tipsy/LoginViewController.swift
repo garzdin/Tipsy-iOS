@@ -18,9 +18,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupGradient()
-        loginButtonVisibility()
+        self.loginButtonVisibility()
         self.loginButton.delegate = self
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Setup background gradient
     
     func setupGradient() {
         let topColor = UIColor(red: 104.0/255.0, green: 0.0/255.0, blue: 133.0/255.0, alpha: 1.0)
@@ -37,6 +43,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
     
+    // MARK: - Login button visibility
+    
     func loginButtonVisibility() {
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             if user != nil {
@@ -48,11 +56,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    // MARK: - Login function
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         self.loginButton.hidden = true

@@ -11,12 +11,14 @@
 		4927199F1CFCA0A400C10652 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927199E1CFCA0A400C10652 /* LoginViewController.swift */; };
 		492719A21CFCA0A400C10652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492719A01CFCA0A400C10652 /* Main.storyboard */; };
 		492719AF1CFCA8E300C10652 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 492719AE1CFCA8E300C10652 /* GoogleService-Info.plist */; };
+		493886B61CFF510600A5C165 /* ViewShake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493886B51CFF510600A5C165 /* ViewShake.swift */; };
 		493C7C3B1CFEF80B008BBF74 /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493C7C3A1CFEF80B008BBF74 /* KeypadViewController.swift */; };
 		49626C561CFE1D5700C678B4 /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49626C551CFE1D5700C678B4 /* VenueTableViewCell.swift */; };
 		497CD0071CFE35E300D4EBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497CD0061CFE35E300D4EBD3 /* Assets.xcassets */; };
 		497CD0091CFE370200D4EBD3 /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 497CD0081CFE370200D4EBD3 /* Data.plist */; };
 		497CD00B1CFE425100D4EBD3 /* VenueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497CD00A1CFE425100D4EBD3 /* VenueDetailsViewController.swift */; };
 		49B130041CFDD3D700983E7E /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B130031CFDD3D700983E7E /* VenuesTableViewController.swift */; };
+		49BEEA4F1CFF648A00AD4B02 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEEA4E1CFF648A00AD4B02 /* AlertViewController.swift */; };
 		EF29D920E20D57D228E25CDD /* Pods_Tipsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B638F075A16227DF0EC2B32 /* Pods_Tipsy.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,12 +29,14 @@
 		492719A11CFCA0A400C10652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		492719A81CFCA0A400C10652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		492719AE1CFCA8E300C10652 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		493886B51CFF510600A5C165 /* ViewShake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShake.swift; sourceTree = "<group>"; };
 		493C7C3A1CFEF80B008BBF74 /* KeypadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; };
 		49626C551CFE1D5700C678B4 /* VenueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
 		497CD0061CFE35E300D4EBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		497CD0081CFE370200D4EBD3 /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
 		497CD00A1CFE425100D4EBD3 /* VenueDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailsViewController.swift; sourceTree = "<group>"; };
 		49B130031CFDD3D700983E7E /* VenuesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
+		49BEEA4E1CFF648A00AD4B02 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		9B638F075A16227DF0EC2B32 /* Pods_Tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476F733ABB30F7D699AD80B /* Pods-Tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tipsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tipsy/Pods-Tipsy.release.xcconfig"; sourceTree = "<group>"; };
 		E7A8FC760DFB78CE78B811DC /* Pods-Tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tipsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tipsy/Pods-Tipsy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 				49626C551CFE1D5700C678B4 /* VenueTableViewCell.swift */,
 				497CD00A1CFE425100D4EBD3 /* VenueDetailsViewController.swift */,
 				493C7C3A1CFEF80B008BBF74 /* KeypadViewController.swift */,
+				49BEEA4E1CFF648A00AD4B02 /* AlertViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -83,15 +88,32 @@
 		4927199B1CFCA0A400C10652 /* Tipsy */ = {
 			isa = PBXGroup;
 			children = (
-				4927199C1CFCA0A400C10652 /* AppDelegate.swift */,
 				491C064C1CFD7A6100399D0F /* Controllers */,
-				492719A01CFCA0A400C10652 /* Main.storyboard */,
+				493886B41CFF50F100A5C165 /* Extensions */,
+				493886B71CFF514600A5C165 /* Static */,
 				497CD0061CFE35E300D4EBD3 /* Assets.xcassets */,
+				492719A01CFCA0A400C10652 /* Main.storyboard */,
+				4927199C1CFCA0A400C10652 /* AppDelegate.swift */,
+			);
+			path = Tipsy;
+			sourceTree = "<group>";
+		};
+		493886B41CFF50F100A5C165 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				493886B51CFF510600A5C165 /* ViewShake.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		493886B71CFF514600A5C165 /* Static */ = {
+			isa = PBXGroup;
+			children = (
 				492719A81CFCA0A400C10652 /* Info.plist */,
 				492719AE1CFCA8E300C10652 /* GoogleService-Info.plist */,
 				497CD0081CFE370200D4EBD3 /* Data.plist */,
 			);
-			path = Tipsy;
+			name = Static;
 			sourceTree = "<group>";
 		};
 		DC02162036521643FD4C2288 /* Pods */ = {
@@ -238,6 +260,8 @@
 				4927199F1CFCA0A400C10652 /* LoginViewController.swift in Sources */,
 				49626C561CFE1D5700C678B4 /* VenueTableViewCell.swift in Sources */,
 				497CD00B1CFE425100D4EBD3 /* VenueDetailsViewController.swift in Sources */,
+				49BEEA4F1CFF648A00AD4B02 /* AlertViewController.swift in Sources */,
+				493886B61CFF510600A5C165 /* ViewShake.swift in Sources */,
 				4927199D1CFCA0A400C10652 /* AppDelegate.swift in Sources */,
 				493C7C3B1CFEF80B008BBF74 /* KeypadViewController.swift in Sources */,
 				49B130041CFDD3D700983E7E /* VenuesTableViewController.swift in Sources */,
@@ -351,7 +375,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Tipsy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tipsyapp.Tipsy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,7 +393,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Tipsy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tipsyapp.Tipsy;
 				PRODUCT_NAME = "$(TARGET_NAME)";

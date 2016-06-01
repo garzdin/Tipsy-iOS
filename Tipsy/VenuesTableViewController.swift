@@ -15,24 +15,19 @@ import FBSDKShareKit
 class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
     
     var venues: [AnyObject] = []
+    var drinks: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTitle()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-            if let user = user {
-                print(user.displayName)
-            } else {
-                
-            }
-        }
-        getData()
+        self.setupTitle()
+        self.getData()
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Setup logo title
     
     func setupTitle() {
         let logoImage = UIImageView(frame: CGRect(x:0, y:0, width: 87, height: 37))
@@ -42,20 +37,13 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
         self.navigationItem.titleView = logoImage
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.venues.count
     }
 
@@ -86,46 +74,9 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
         return 263.0
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "venueDetails" {
             let viewController: VenueDetailsViewController = segue.destinationViewController as! VenueDetailsViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -149,8 +100,9 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
                 }
             }
         }
-        // Pass the selected object to the new view controller.
     }
+    
+    // MARK: - Get data
     
     func getData() {
         if let path = NSBundle.mainBundle().pathForResource("Data", ofType: "plist") {
@@ -164,11 +116,40 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
         }
         self.tableView.reloadData()
     }
+    
+    // MARK: - Logout action
 
     @IBAction func logoutAction(sender: UIBarButtonItem) {
         FBSDKLoginManager().logOut()
         try! FIRAuth.auth()?.signOut()
         UIApplication.sharedApplication().keyWindow?.rootViewController = storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+    }
+    
+    // MARK: - Get drink action
+    
+    @IBAction func getDrinkAction(sender: UIButton) {
+        if drinks >= 1 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let alertDialog = storyboard.instantiateViewControllerWithIdentifier("AlertViewController")
+            alertDialog.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            alertDialog.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            self.presentViewController(alertDialog, animated: true, completion: nil)
+        }
+        self.drinks += 1
+    }
+    
+    // MARK: - Share action
+    
+    @IBAction func shareAction(sender: UIButton) {        
+        let content = FBSDKShareLinkContent()
+        content.contentDescription = "Tipsy has great offers on beer"
+        content.placeID = "267091300008193"
+        let dialog = FBSDKShareDialog()
+        dialog.shareContent = content
+        dialog.delegate = self
+        dialog.fromViewController = self
+        dialog.mode = .Automatic
+        dialog.show()
     }
     
     func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
@@ -181,17 +162,5 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
     
     func sharerDidCancel(sharer: FBSDKSharing!) {
         
-    }
-    
-    @IBAction func shareAction(sender: UIButton) {
-        let content = FBSDKShareLinkContent()
-        content.contentDescription = "Tipsy has great offers on beer"
-        content.placeID = "267091300008193"
-        let dialog = FBSDKShareDialog()
-        dialog.shareContent = content
-        dialog.delegate = self
-        dialog.fromViewController = self
-        dialog.mode = .Automatic
-        dialog.show()
     }
 }
