@@ -16,10 +16,14 @@ class VenueTableViewCell: UITableViewCell {
     @IBOutlet var venueLabelAddress: UILabel!
     @IBOutlet var venueLabelTimes: UILabel!
     @IBOutlet var venueLabelMusic: UILabel!
+    @IBOutlet var shadowView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.shadowView.layer.shadowOpacity = 0.7
+        self.shadowView.layer.shadowRadius = 4
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

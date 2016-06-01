@@ -66,7 +66,7 @@ class VenueDetailsViewController: UIViewController {
         geocoder.geocodeAddressString(self.venueAddress) { (placemarks: [CLPlacemark]?, error: NSError?) in
             if let placemark = placemarks![0] as CLPlacemark? {
                 self.venueMapView.addAnnotation(MKPlacemark(placemark: placemark))
-                self.venueMapView.setRegion(MKCoordinateRegion(center: (placemark.location?.coordinate)!, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)), animated: true)
+                self.venueMapView.setRegion(MKCoordinateRegion(center: (placemark.location?.coordinate)!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
             }
         }
     }
