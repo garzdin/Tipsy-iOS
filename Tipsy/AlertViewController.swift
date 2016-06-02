@@ -10,13 +10,44 @@ import UIKit
 import FBSDKShareKit
 
 class AlertViewController: UIViewController, FBSDKSharingDelegate {
+    
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var cancleButton: UIButton!
+    @IBOutlet var shareButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupHeaderView()
+        self.setupCancleButton()
+        self.setupShareButton()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Setup header view
+    
+    func setupHeaderView() {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: self.headerView.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.TopRight), cornerRadii: CGSizeMake(5, 5)).CGPath
+        self.headerView.layer.mask = maskLayer
+    }
+    
+    // MARK: - Setup cancle button
+    
+    func setupCancleButton() {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: self.cancleButton.bounds, byRoundingCorners: UIRectCorner.BottomLeft, cornerRadii: CGSizeMake(5, 5)).CGPath
+        self.cancleButton.layer.mask = maskLayer
+    }
+    
+    // MARK: - Setup share button
+    
+    func setupShareButton() {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: self.shareButton.bounds, byRoundingCorners: UIRectCorner.BottomRight, cornerRadii: CGSizeMake(5, 5)).CGPath
+        self.shareButton.layer.mask = maskLayer
     }
     
     // MARK: - Cancle action

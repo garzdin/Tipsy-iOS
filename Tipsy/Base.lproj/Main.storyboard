@@ -612,6 +612,11 @@
                             <constraint firstItem="Ps1-mU-ne2" firstAttribute="centerX" secondItem="1kW-AQ-0Lq" secondAttribute="centerX" id="pJA-HR-pMn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancleButton" destination="4Mk-vK-qbJ" id="srh-3p-Xoe"/>
+                        <outlet property="headerView" destination="Ps1-mU-ne2" id="Q3S-HS-f5Y"/>
+                        <outlet property="shareButton" destination="pI9-Pt-VfR" id="6NL-Cc-s6L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1M-Du-LGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
