@@ -100,4 +100,9 @@ class KeypadViewController: UIViewController {
             break
         }
     }
+    
+    @IBAction func clearAction(sender: UIButton) {
+        buttonArray = []
+    }
+    
 }
