@@ -10,9 +10,17 @@ import UIKit
 import MapKit
 import FBSDKShareKit
 
+// MARK: - Drinks count protocol
+
+protocol DrinksCountDelegate: class {
+    func didUpdateDrinksCount(sender: VenueDetailsViewController, count: Int)
+}
+
 class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate, CombinationCheckDelegate {
     
     var drinks: Int = 0
+    
+    weak var delegate: DrinksCountDelegate?
     
     var venueName: String = ""
     var venueMessage: String = ""
@@ -125,5 +133,6 @@ class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate, Combin
     
     func didEnterRightCode(sender: KeypadViewController) {
         self.drinks += 1
+        delegate?.didUpdateDrinksCount(self, count: self.drinks)
     }
 }

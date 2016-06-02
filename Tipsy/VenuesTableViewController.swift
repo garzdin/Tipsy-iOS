@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
 
-class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate, CombinationCheckDelegate {
+class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate, CombinationCheckDelegate, DrinksCountDelegate {
     
     var venues: [AnyObject] = []
     var drinks: Int = 0
@@ -79,6 +79,7 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate, Co
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "venueDetails" {
             let viewController: VenueDetailsViewController = segue.destinationViewController as! VenueDetailsViewController
+            viewController.delegate = self
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 if let venueName = self.venues[indexPath.row]["name"] as? String {
                     viewController.venueName = venueName
@@ -98,6 +99,7 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate, Co
                 if let venueFavorited = self.venues[indexPath.row]["favoriteStatus"] as? Bool {
                     viewController.venueFavorited = venueFavorited
                 }
+                viewController.drinks = self.drinks
             }
         }
         if segue.identifier == "cardToKeypad" {
@@ -171,5 +173,11 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate, Co
     
     func didEnterRightCode(sender: KeypadViewController) {
         self.drinks += 1
+    }
+    
+    // MARK: - Update drinks count from details view
+    
+    func didUpdateDrinksCount(sender: VenueDetailsViewController, count: Int) {
+        self.drinks = count
     }
 }
