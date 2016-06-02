@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
 
-class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
+class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate, CombinationCheckDelegate {
     
     var venues: [AnyObject] = []
     var drinks: Int = 0
@@ -100,6 +100,10 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
                 }
             }
         }
+        if segue.identifier == "cardToKeypad" {
+            let viewController: KeypadViewController = segue.destinationViewController as! KeypadViewController
+            viewController.delegate = self
+        }
     }
     
     // MARK: - Get data
@@ -135,7 +139,6 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
             alertDialog.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             self.presentViewController(alertDialog, animated: true, completion: nil)
         }
-        self.drinks += 1
     }
     
     // MARK: - Share action
@@ -162,5 +165,11 @@ class VenuesTableViewController: UITableViewController, FBSDKSharingDelegate {
     
     func sharerDidCancel(sharer: FBSDKSharing!) {
         
+    }
+    
+    // MARK: - Did enter right key code from keypad
+    
+    func didEnterRightCode(sender: KeypadViewController) {
+        self.drinks += 1
     }
 }

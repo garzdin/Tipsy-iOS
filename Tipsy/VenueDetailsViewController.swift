@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import FBSDKShareKit
 
-class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate {
+class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate, CombinationCheckDelegate {
     
     var drinks: Int = 0
     
@@ -50,6 +50,15 @@ class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate {
         self.favorited = venueFavorited
     }
     
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detailToKeypad" {
+            let viewController: KeypadViewController = segue.destinationViewController as! KeypadViewController
+            viewController.delegate = self
+        }
+    }
+    
     // MARK: - Geocode reverse address
     
     func getPinFromAddress() {
@@ -84,7 +93,6 @@ class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate {
             alertDialog.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             self.presentViewController(alertDialog, animated: true, completion: nil)
         }
-        self.drinks += 1
     }
     
     // MARK: - Share action
@@ -111,5 +119,11 @@ class VenueDetailsViewController: UIViewController, FBSDKSharingDelegate {
     
     func sharerDidCancel(sharer: FBSDKSharing!) {
         
+    }
+    
+    // MARK: - Did enter right key code from keypad
+    
+    func didEnterRightCode(sender: KeypadViewController) {
+        self.drinks += 1
     }
 }

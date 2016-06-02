@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol CombinationCheckDelegate: class {
+    func didEnterRightCode(sender: KeypadViewController)
+}
+
 class KeypadViewController: UIViewController {
     
     var buttonArray: [Int] = []
     let correctCode = "9653"
+    
+    weak var delegate: CombinationCheckDelegate?
 
     @IBOutlet var dialContainer: UIView!
     @IBOutlet var buttonOne: UIButton!
@@ -48,7 +54,7 @@ class KeypadViewController: UIViewController {
         buttonNine.tag = 9
         buttonZero.tag = 0
     }
-    
+
     // MARK: - Combination check
     
     func checkArray() {
@@ -56,6 +62,7 @@ class KeypadViewController: UIViewController {
             let codeToArray = self.correctCode.characters.map{Int(String($0))!}
             if buttonArray == codeToArray {
                 self.navigationController?.popViewControllerAnimated(true)
+                delegate?.didEnterRightCode(self)
             } else {
                 self.dialContainer.layer.shake()
             }
