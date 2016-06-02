@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: - Delegate protocol
+
 protocol CombinationCheckDelegate: class {
     func didEnterRightCode(sender: KeypadViewController)
 }
